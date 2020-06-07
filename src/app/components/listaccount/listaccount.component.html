@@ -1,0 +1,48 @@
+<app-menu></app-menu>
+
+<div class="container">
+    <form (ngSubmit)="processForm()">
+        <table class="table table-striped">
+            <thead>
+            <th> Id </th>
+            <th> Account Number </th>
+            </thead>
+        
+            <tbody>
+            <tr *ngFor="let account of accounts">
+                <td></td>
+                <td>{{account.accountNumber}}</td>
+                <td>
+                <button class="btn btn-danger" (click)="removeAccount(account)">Remove</button>
+                </td>
+                <!--
+                <td>
+                <button class="btn btn-primary" (click)="">Edit</button>
+                </td>
+                -->
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="text" name="newAccountNumber" class="form-control" [(ngModel)]="newAccountNumber">
+                </td>
+                <td>
+                    <button type='button' class="btn btn-primary" (click)="addAccount()">Add</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type='button' class="btn btn-primary" (click)="pendingRequests()">List Pending Requests</button></td>
+                <td><input type="submit" value="Submit Accounts to Pending Requests" class="btn btn-success"></td>
+            </tr>  
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    
+                </td>
+            </tr>  
+            </tbody>
+        </table>
+    </form>
+</div>

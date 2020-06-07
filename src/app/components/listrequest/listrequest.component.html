@@ -1,0 +1,53 @@
+<app-menu></app-menu>
+
+<div class="container">
+        <table class="table table-striped">
+            <thead>
+                <th style="color:black; font-size:8pt;"> Request Id </th>
+                <th style="color:black; font-size:8pt;"> Submitted By </th>
+                <th style="color:black; font-size:8pt;"> Submitted Date </th>
+                <th style="color:black; font-size:8pt;"> Approved By </th>
+                <th style="color:black; font-size:8pt;"> Approval Date </th>
+                <th style="color:black; font-size:8pt;"> Status </th>
+                <th style="color:black; font-size:8pt;"> Account Number </th>
+            </thead>
+        
+            <tbody>
+            <tr *ngFor="let userRequest of userRequests">
+                <td style="color:black; font-size:7pt;">{{userRequest.requestId}}</td>
+                <td style="color:black; font-size:7pt;">{{userRequest.submittedBy}}</td>
+                <td style="color:black; font-size:7pt;">{{userRequest.submittedDate}}</td>
+                <td style="color:black; font-size:7pt;">{{userRequest.approvedBy}}</td>
+                <td style="color:black; font-size:7pt;">{{userRequest.approvalDate}}</td>
+                <td style="color:black; font-size:7pt;">{{userRequest.status}}</td>
+                <td style="color:black; font-size:7pt;">{{userRequest.accountNumber}}</td>
+                <td *ngIf="showApprove">
+                    <button class="btn btn-primary" (click)="approve(userRequest)">Approve</button>
+                </td>
+                <td *ngIf="showReject">
+                    <button class="btn btn-danger" (click)="reject(userRequest)">Reject</button>
+                </td>
+                <td *ngIf="showCancel">
+                    <button class="btn btn-danger" (click)="cancel(userRequest)">Cancel</button>
+                </td>
+            </tr>
+            <!--
+            <tr>
+                <td></td>
+                <td>
+                    <input type="text" name="newAccountNumber" class="form-control" [(ngModel)]="newAccountNumber">
+                </td>
+                <td>
+                    <button class="btn btn-primary" (click)="addAccount()">Add</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><input type="submit" value="Submit" class="btn btn-success"></td>
+            </tr>  
+            -->
+            </tbody>
+        </table>
+
+</div>
